@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.util.Scanner;
 public class Dado {
     private int identificador;
     private Random r = new Random();
@@ -42,9 +42,14 @@ public class Dado {
         this.modificador = modificador;
     }
 
-    public int tirarDado() {
-        int numeroaleatorio = r.nextInt(nCaras) + 1;
-        return numeroaleatorio;
+    public void tirarDado() {
+        //int numeroaleatorio = r.nextInt(nCaras) + 1;
+        //return numeroaleatorio;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce cuantas caras quieres que tenga el dado");
+        int caras = Integer.parseInt(sc.nextLine());
+        setnCaras(caras);
+
     }
 
     public int tirarDadoMod() {
