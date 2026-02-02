@@ -6,19 +6,24 @@ public class Dado {
     private int nCaras;
     private int modificador;
     private ListaCaraDados caradados;
+    private static int contar;
 
     public Dado() {
-        this.identificador = identificador;
+        contar++;
+        this.identificador = contar;
         this.nCaras = 6;
         this.caradados = caradados;
         this.modificador = 0;
+       
     }
 
     public Dado(int nCaras, int modificador, ListaCaraDados caraDados) {
         this.nCaras = nCaras;
         this.modificador = modificador;
         this.caradados = caraDados;
-        this.identificador = identificador;
+        contar++;
+        this.identificador=contar;
+        
     }
 
     public int getnCaras() {
@@ -82,6 +87,89 @@ public class Dado {
             mayor = dado2;
             return mayor;
         }
+    }
+
+    public int tirarConVentajaMod() {
+        int dado1 = tirarDado();
+        int dado2 = tirarDado();
+        int resultado = 0;
+
+        int mayor = 0;
+
+        if (dado1 > dado2) {
+            mayor = dado1;
+
+        } else {
+            mayor = dado2;
+        }
+
+        return mayor + modificador;
+    }
+
+    public int tirarConDesventaja() {
+        int dado1 = tirarDado();
+        int dado2 = tirarDado();
+        int resultado = 0;
+
+        int menor = 0;
+
+        if (dado1 < dado2) {
+            menor = dado1;
+            return menor;
+
+        } else {
+            menor = dado2;
+            return menor;
+        }
+
+    }
+
+    public int tirarConDesventajaMod() {
+        int dado1 = tirarDado();
+        int dado2 = tirarDado();
+        int resultado = 0;
+        int menor = 0;
+
+        if (dado1 < dado2) {
+            menor = dado1;
+
+        } else {
+            menor = dado2;
+
+        }
+
+        return menor + modificador;
+    }
+
+    // numeroaleatorio hasta nCaras*2
+
+    public int hacerTrampa() {
+        int tirada = tirarDado();
+        int max = nCaras;
+        int sumarFijo = r.nextInt(1, 2);
+        int resultado = 0;
+        resultado = sumarFijo + tirada;
+        if (resultado > nCaras) {
+            resultado = nCaras;
+        }
+
+        return resultado;
+
+    }
+
+
+    public int hacerTramaMod(){
+         int tirada = tirarDado();
+        int max = nCaras;
+        int sumarFijo = r.nextInt(1, 2);
+        int resultado = 0;
+        resultado = sumarFijo + tirada;
+        if (resultado > nCaras) {
+            resultado = nCaras;
+        }
+
+        return resultado + modificador;
+
     }
 
 }
