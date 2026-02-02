@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Scanner;
 public class Dado {
     private int identificador;
     private Random r = new Random();
@@ -35,20 +34,20 @@ public class Dado {
     }
 
     public void setnCaras(int nCaras) {
-        this.nCaras = nCaras;
+        if(esCaraValida(nCaras)){
+            this.nCaras = nCaras;
+        }else{
+            this.nCaras = 6;
+        }
     }
 
     public void setModificador(int modificador) {
         this.modificador = modificador;
     }
 
-    public void tirarDado() {
-        //int numeroaleatorio = r.nextInt(nCaras) + 1;
-        //return numeroaleatorio;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce cuantas caras quieres que tenga el dado");
-        int caras = Integer.parseInt(sc.nextLine());
-        setnCaras(caras);
+    public int tirarDado() {
+        int numeroaleatorio = r.nextInt(nCaras) + 1;
+        return numeroaleatorio;
 
     }
 
@@ -175,6 +174,10 @@ public class Dado {
 
         return resultado + modificador;
 
+    }
+
+    private boolean esCaraValida(int caras){
+        return caras == 4 || caras ==6 || caras == 8 || caras == 10 || caras == 12 || caras == 20 || caras == 100;
     }
 
 }
