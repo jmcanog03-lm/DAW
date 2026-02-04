@@ -22,7 +22,6 @@ public class Dado {
         this.caradados = caraDados;
         contar++;
         this.identificador=contar;
-        
     }
 
     public int getnCaras() {
