@@ -38,4 +38,8 @@ public class Animal {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public void hacerSonido(){
+        System.out.println("Sonido General");
+    }
 }

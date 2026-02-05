@@ -101,4 +101,14 @@ public class Perro extends Animal {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Pelaje " + getPelaje() + " Tamaño " + getTamano() + " Nivel de Energia" + getNivelEnergia() + " Raza " + getRaza();
+    }
+
+    @Override
+    public void hacerSonido(){
+        ladrar();
+    }
+
 }

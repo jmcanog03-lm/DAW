@@ -5,5 +5,10 @@ public class App {
         System.out.println("Nombre: " + perro1.getNombre());
         System.out.println("Raza " + perro1.getRaza());
         System.out.println("Pelaje " + perro1.getPelaje());
+
+
+        Gato gato1 = new Gato("Garfield", "Lasaña", 4, NivelDependencia.UNO, TipoPelaje.CORTO, ColorPelajeGato.BLANCO);
+
+        Caballo caballo1 = new Caballo("Chene", "Paja", 6, 5, 8);
     }
 }
