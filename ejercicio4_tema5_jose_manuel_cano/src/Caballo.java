@@ -79,5 +79,9 @@ public class Caballo extends Animal {
         return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Altura " + getAltura() + " Velocidad en Máxima " + getVelocidadMaxima();
     }
 
+    
+
+
+
 
 }

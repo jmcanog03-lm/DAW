@@ -94,6 +94,7 @@ public class Perro extends Animal {
 
             case GRANDE:
                 System.out.println("GUAAAAAU GUAAAUU!!!!!!!!!");
+                break;
 
             default:
                 System.out.println("El tamaño del perro debe ser o mediano o pequeño o grande");

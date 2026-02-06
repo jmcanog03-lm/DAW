@@ -87,6 +87,7 @@ public class Gato extends Animal{
         return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Pelaje " + getPelaje()  + " Nivel de dependencia " + getNivelDependencia() + " Color del pelaje " + getColorPelajeGato();
     }
 
+    
 
 
 
