@@ -12,7 +12,7 @@ public enum NivelEnergia {
 
     private final int valor;
 
-    private NivelEnergia(int valor){
+    private NivelEnergia(int valor) {
         this.valor = valor;
     }
 }

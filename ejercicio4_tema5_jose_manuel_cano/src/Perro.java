@@ -104,7 +104,23 @@ public class Perro extends Animal {
 
     @Override
     public String toString() {
-        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Pelaje " + getPelaje() + " Tamaño " + getTamano() + " Nivel de Energia" + getNivelEnergia() + " Raza " + getRaza();
+        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Pelaje " + getPelaje() + " Tamaño " + getTamano() + " Nivel de Energia " + getNivelEnergia() + " Raza " + getRaza();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this==obj){
+            return true;
+        }
+
+        if(!(obj instanceof Perro)){
+            return false;
+        }
+
+        Perro  perro = (Perro) obj;
+
+        return this.nombre.equals(perro.getNombre()) && this.tipo_alimentacion.equals(perro.getTipoAlimentacion()) && this.edad == perro.getEdad() && this.pelaje.equals(perro.getPelaje()) && this.nivelEnergia == perro.getNivelEnergia() && this.raza.equals(perro.getRaza()) && this.tamano == perro.getTamano();
+
     }
 
     @Override

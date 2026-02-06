@@ -1,20 +1,21 @@
-public class Gato extends Animal{
+public class Gato extends Animal {
     private NivelDependencia nivel_dependencia;
     private TipoPelaje pelajegato;
     private ColorPelajeGato color_pelaje_gato;
 
-    public Gato(){
+    public Gato() {
         super();
         super.nombre = "Chene";
         super.tipo_alimentacion = "Pienso ";
-        super.edad =12;
+        super.edad = 12;
         this.nivel_dependencia = NivelDependencia.UNO;
         this.pelajegato = TipoPelaje.CORTO;
         this.color_pelaje_gato = ColorPelajeGato.NEGRO;
 
     }
 
-    public Gato(String nombre, String tipo_alimentacion, int edad, NivelDependencia nivelDependencia, TipoPelaje pelaje, ColorPelajeGato colorPelajeGato){
+    public Gato(String nombre, String tipo_alimentacion, int edad, NivelDependencia nivelDependencia, TipoPelaje pelaje,
+            ColorPelajeGato colorPelajeGato) {
         super.nombre = nombre;
         super.tipo_alimentacion = tipo_alimentacion;
         super.edad = edad;
@@ -24,79 +25,87 @@ public class Gato extends Animal{
         this.color_pelaje_gato = colorPelajeGato;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return super.nombre;
     }
 
-    public String getTipoAlimentacion(){
+    public String getTipoAlimentacion() {
         return super.tipo_alimentacion;
     }
 
-    public int getEdad(){
+    public int getEdad() {
         return super.edad;
     }
 
-    public NivelDependencia getNivelDependencia(){
-       return this.nivel_dependencia;
+    public NivelDependencia getNivelDependencia() {
+        return this.nivel_dependencia;
     }
 
-    public TipoPelaje getPelaje(){
+    public TipoPelaje getPelaje() {
         return this.pelajegato;
     }
 
-    public ColorPelajeGato getColorPelajeGato(){
+    public ColorPelajeGato getColorPelajeGato() {
         return this.color_pelaje_gato;
     }
 
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         super.nombre = nombre;
     }
 
-    public void setTipoAlimentacion(String tipo_alimentacion){
+    public void setTipoAlimentacion(String tipo_alimentacion) {
         super.tipo_alimentacion = tipo_alimentacion;
     }
 
-    public void setEdad(int edad){
+    public void setEdad(int edad) {
         super.edad = edad;
     }
 
-    
-    public void setNivelDependencia(NivelDependencia nivelDependencia){
-       this.nivel_dependencia = nivelDependencia;
+    public void setNivelDependencia(NivelDependencia nivelDependencia) {
+        this.nivel_dependencia = nivelDependencia;
     }
 
-      public void setPelaje(TipoPelaje pelaje){
+    public void setPelaje(TipoPelaje pelaje) {
         this.pelajegato = pelaje;
     }
 
-       public void setColorPelajeGato(ColorPelajeGato color_pelaje){
+    public void setColorPelajeGato(ColorPelajeGato color_pelaje) {
         this.color_pelaje_gato = color_pelaje;
     }
 
-    public void Maullar(){
+    public void Maullar() {
         System.out.println("MIAU!!!!!!!!!!!!!!!!!!");
     }
 
-     @Override
-    public void hacerSonido(){
+    @Override
+    public void hacerSonido() {
         Maullar();
     }
 
-     @Override
+    @Override
     public String toString() {
-        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Pelaje " + getPelaje()  + " Nivel de dependencia " + getNivelDependencia() + " Color del pelaje " + getColorPelajeGato();
+        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion()
+                + " Pelaje " + getPelaje() + " Nivel de dependencia " + getNivelDependencia() + " Color del pelaje "
+                + getColorPelajeGato();
     }
 
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
+        if (!(obj instanceof Gato)) {
+            return false;
+        }
 
+        Gato gato = (Gato) obj;
 
+        return this.nombre.equals(gato.getNombre()) && this.tipo_alimentacion.equals(gato.getTipoAlimentacion())
+                && this.edad == gato.getEdad() && this.pelajegato.equals(gato.getPelaje())
+                && this.nivel_dependencia == gato.getNivelDependencia()
+                && this.color_pelaje_gato == gato.getColorPelajeGato();
 
-    
-
-
-
-
-
+    }
 
 }

@@ -8,6 +8,8 @@ public class App {
         System.out.println("Tamaño" + perro1.getTamano());
 
         Gato gato1 = new Gato("Garfield", "Lasaña", 4, NivelDependencia.UNO, TipoPelaje.CORTO, ColorPelajeGato.BLANCO);
+        Gato gato2 = new Gato("Garfield", "Lasaña", 4, NivelDependencia.UNO, TipoPelaje.CORTO, ColorPelajeGato.BLANCO);
+
 
         Caballo caballo1 = new Caballo("Chene", "Paja", 6, 5, 8);
 
@@ -15,16 +17,22 @@ public class App {
         gato1.Maullar();
         System.out.println();
 
-        Animal[] animales = new Animal[3];
+        Animal[] animales = new Animal[4];
 
         animales[0] = perro1;
         animales[1] = gato1;
         animales[2] = caballo1;
+        animales[3] = gato2;
+
+
+
 
         for (int i = 0; i < animales.length; i++) {
             System.out.println(animales[i].toString());
             animales[i].hacerSonido();
         }
+
+        System.out.println( gato1.equals(gato2));
       
 
     }

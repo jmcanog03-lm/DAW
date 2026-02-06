@@ -40,6 +40,10 @@ public class Caballo extends Animal {
         return this.velocidadMaxima;
     }
 
+    public int getDistancia() {
+        return this.distancia;
+    }
+
     public void setNombre(String nombre) {
         super.nombre = nombre;
     }
@@ -60,6 +64,10 @@ public class Caballo extends Animal {
         this.velocidadMaxima = velocidadMaxima;
     }
 
+    public void setDistancia(int distancia) {
+        this.distancia = distancia;
+    }
+
     public void relinchar() {
         System.out.println("gijaaaaaaaa");
     }
@@ -69,19 +77,32 @@ public class Caballo extends Animal {
         return tiempo;
     }
 
-     @Override
-    public void hacerSonido(){
+    @Override
+    public void hacerSonido() {
         relinchar();
     }
 
-     @Override
+    @Override
     public String toString() {
-        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion() + " Altura " + getAltura() + " Velocidad en Máxima " + getVelocidadMaxima();
+        return "Nombre " + getNombre() + " Edad " + getEdad() + " TipoAlimentacion " + getTipo_alimentacion()
+                + " Altura " + getAltura() + " Velocidad en Máxima " + getVelocidadMaxima();
     }
 
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
+        if (!(obj instanceof Caballo)) {
+            return false;
+        }
 
+        Caballo caballo = (Caballo) obj;
 
+        return this.nombre.equals(caballo.getNombre()) && this.tipo_alimentacion.equals(caballo.getTipoAlimentacion())
+                && this.edad == caballo.getEdad() && this.distancia == caballo.getDistancia();
+
+    }
 
 }
