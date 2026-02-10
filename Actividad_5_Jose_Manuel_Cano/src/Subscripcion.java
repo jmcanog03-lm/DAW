@@ -4,4 +4,5 @@ abstract class Subscripcion {
     abstract void CobroPlan();
     abstract double[] HistoriaMensual();
 
+    abstract boolean PausarSubscripcion();
 }
