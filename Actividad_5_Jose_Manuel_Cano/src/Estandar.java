@@ -1,7 +1,4 @@
-import java.util.Arrays;
-
-public class Basico extends Subscripcion {
-
+public class Estandar extends Subscripcion {
     private double precio;
     private int duracion;
     private int dispositivos_activos;
@@ -9,8 +6,9 @@ public class Basico extends Subscripcion {
     private double total_cobrado;
     private double[] historial_mensual;
     private double[] historial_entero;
-
     private String nombre_perfil;
+    private int recargo;
+    private int descuento = 0;
 
     public double getPrecio() {
         return this.precio;
@@ -76,46 +74,86 @@ public class Basico extends Subscripcion {
         this.nombre_perfil = nombre_perfil;
     }
 
-    public Basico() {
-        this.precio = 4.99;
+    public int getRecargo() {
+        return this.recargo;
+    }
+
+    public void setRecargo(int recargo) {
+        this.recargo = recargo;
+    }
+
+    public int getDescuento() {
+        return this.descuento;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
+
+    
+
+    public Estandar() {
+        this.precio = 7.99;
         this.duracion = 0;
-        this.dispositivos_activos = 1;
+        this.dispositivos_activos = 2;
         this.parar_subscripcion = false;
         this.total_cobrado = 0;
         this.historial_mensual = new double[duracion];
         this.historial_entero = new double[duracion];
         this.nombre_perfil = "";
+        this.recargo = 0;
+        this.descuento = 5;
     }
 
-    public Basico(String nombrePerfil, int duracion, int dispositivosActuales) {
+    public Estandar(String nombrePerfil, int duracion, int dispositivosActuales) {
         this.duracion = duracion;
         this.historial_mensual = new double[duracion];
         this.historial_entero = new double[duracion];
         this.dispositivos_activos = dispositivosActuales;
         this.nombre_perfil = nombrePerfil;
-        this.precio = 4.99;
+        this.precio = 7.99;
+
     }
 
     @Override
     public boolean ControlarDispositivos() {
 
-        if (this.dispositivos_activos > 1) {
-            this.parar_subscripcion = true;
-            return false;
-
+        if (this.dispositivos_activos > 2) {
+            this.recargo = 2;
+        } else {
+            this.recargo = 0;
         }
-        this.parar_subscripcion = false;
+
         return true;
     }
 
-    @Override
-    public void InicializarHistorial(){
-         for (int i = 0; i < historial_mensual.length; i++){
-           historial_mensual[i] = precio;
-         }
+    public void InicializarHistorial() {
+
+        for (int i = 0; i < historial_mensual.length; i++) {
+
+            double precio_al_mes = this.precio;
+           
+            double precio_final = precio_al_mes;
+
+            if (ControlarDispositivos()) {
+
+                precio_final += recargo;
+
+            }
+
+            if (this.duracion >= 6) {
+                precio_final *= 0.95;
+            }
+
+            if (parar_subscripcion) {
+                precio_final = 0;
+            }
+
+            historial_mensual[i] = precio_final;
+        }
     }
 
-    @Override
+      @Override
     public void CobroPlan() {
 
         double total = 0;
@@ -133,7 +171,8 @@ public class Basico extends Subscripcion {
 
     }
 
-    @Override
+
+      @Override
     public double[] HistoriaMensual() {
 
         for (int i = 0; i < duracion; i++) {
@@ -161,5 +200,7 @@ public class Basico extends Subscripcion {
 
         return false;
     }
+
+
 
 }
