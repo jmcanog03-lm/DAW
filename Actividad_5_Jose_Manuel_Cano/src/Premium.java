@@ -1,4 +1,4 @@
-public class Premium extends Subscripcion{
+public class Premium extends Subscripcion {
     private double precio;
     private int duracion;
     private int dispositivos_activos;
@@ -90,8 +90,6 @@ public class Premium extends Subscripcion{
         this.descuento = descuento;
     }
 
-    
-
     public Premium() {
         this.precio = 12.99;
         this.duracion = 0;
@@ -119,25 +117,23 @@ public class Premium extends Subscripcion{
     public boolean ControlarDispositivos() {
 
         if (this.dispositivos_activos > 4) {
-           return true;
-        } 
-        
+            return true;
+        }
+
         return true;
 
-        
     }
 
+    @Override
     public void InicializarHistorial() {
 
         for (int i = 0; i < historial_mensual.length; i++) {
 
             double precio_al_mes = this.precio;
-        
+
             double precio_final = precio_al_mes;
 
-            precio_final*=0.90;
-
-            
+            precio_final *= 0.90;
 
             if (this.duracion == 12) {
                 precio_final *= 0.95;
@@ -151,7 +147,7 @@ public class Premium extends Subscripcion{
         }
     }
 
-      @Override
+    @Override
     public void CobroPlan() {
 
         double total = 0;
@@ -159,7 +155,6 @@ public class Premium extends Subscripcion{
         for (int i = 0; i < duracion; i++) {
             if (historial_mensual[i] != 0) {
                 total += historial_mensual[i];
-                
 
             }
 
@@ -169,8 +164,7 @@ public class Premium extends Subscripcion{
 
     }
 
-
-      @Override
+    @Override
     public double[] HistoriaMensual() {
 
         for (int i = 0; i < duracion; i++) {
@@ -185,19 +179,17 @@ public class Premium extends Subscripcion{
 
         if (duracion >= 6 && parar_subscripcion == false) {
 
-            for (int i = 0; i < historial_mensual.length; i++) {
-                if (historial_mensual[i] != 0) {
-                    historial_mensual[i] = 0;
-                    parar_subscripcion = true;
-                    return true;
-                }
+            int i = historial_mensual.length -1;
 
+            if (historial_mensual[i] > 0) {
+                historial_mensual[i] = 0;
+                parar_subscripcion = true;
+                return true;
             }
 
         }
 
         return false;
     }
-
 
 }

@@ -90,8 +90,6 @@ public class Estandar extends Subscripcion {
         this.descuento = descuento;
     }
 
-    
-
     public Estandar() {
         this.precio = 7.99;
         this.duracion = 0;
@@ -127,12 +125,13 @@ public class Estandar extends Subscripcion {
         return true;
     }
 
+    @Override
     public void InicializarHistorial() {
 
         for (int i = 0; i < historial_mensual.length; i++) {
 
             double precio_al_mes = this.precio;
-           
+
             double precio_final = precio_al_mes;
 
             if (ControlarDispositivos()) {
@@ -153,7 +152,7 @@ public class Estandar extends Subscripcion {
         }
     }
 
-      @Override
+    @Override
     public void CobroPlan() {
 
         double total = 0;
@@ -161,7 +160,6 @@ public class Estandar extends Subscripcion {
         for (int i = 0; i < duracion; i++) {
             if (historial_mensual[i] != 0) {
                 total += historial_mensual[i];
-                
 
             }
 
@@ -171,8 +169,7 @@ public class Estandar extends Subscripcion {
 
     }
 
-
-      @Override
+    @Override
     public double[] HistoriaMensual() {
 
         for (int i = 0; i < duracion; i++) {
@@ -187,20 +184,17 @@ public class Estandar extends Subscripcion {
 
         if (duracion >= 6 && parar_subscripcion == false) {
 
-            for (int i = 0; i < historial_mensual.length; i++) {
-                if (historial_mensual[i] != 0) {
-                    historial_mensual[i] = 0;
-                    parar_subscripcion = true;
-                    return true;
-                }
+            int i = historial_mensual.length -1;
 
+            if (historial_mensual[i] > 0) {
+                historial_mensual[i] = 0;
+                parar_subscripcion = true;
+                return true;
             }
 
         }
 
         return false;
     }
-
-
 
 }

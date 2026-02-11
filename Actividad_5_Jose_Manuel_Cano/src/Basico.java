@@ -143,18 +143,17 @@ public class Basico extends Subscripcion {
         return historial_entero;
     }
 
-    @Override
+   @Override
     public boolean PausarSubscripcion() {
 
         if (duracion >= 6 && parar_subscripcion == false) {
 
-            for (int i = 0; i < historial_mensual.length; i++) {
-                if (historial_mensual[i] != 0) {
-                    historial_mensual[i] = 0;
-                    parar_subscripcion = true;
-                    return true;
-                }
+            int i = historial_mensual.length -1;
 
+            if (historial_mensual[i] > 0) {
+                historial_mensual[i] = 0;
+                parar_subscripcion = true;
+                return true;
             }
 
         }
