@@ -15,7 +15,6 @@ public class Maquina implements ocupable, utilizable {
         this.nombreMaquinas = "";
 
         this.ocupado = false;
-
         contador++;
 
         this.fechaFabricacion = "4/09/2025";
@@ -29,6 +28,17 @@ public class Maquina implements ocupable, utilizable {
         this.ocupado = ocupado;
         contador++;
     }
+
+
+    public boolean getOcupado() {
+        return this.ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
+    }
+
+    
 
     public int getIdentificador() {
         return this.identificador;
@@ -59,7 +69,7 @@ public class Maquina implements ocupable, utilizable {
 
         if(!this.ocupado){
             this.ocupado = true;
-            return ocupado;
+            return true;
         }
 
         return false;
@@ -79,9 +89,22 @@ public class Maquina implements ocupable, utilizable {
     }
     
 
-    @Override
+   @Override
 
     public void utilizar() {
+        System.out.println("USANDO MELON!!!!!!!!!!");
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " identificador='" + getIdentificador() + "'" +
+            ", nombreMaquinas='" + getNombreMaquinas() + "'" +
+            ", fechaFabricacion='" + getFechaFabricacion() + "'" +
+            ", ocupado='" + getOcupado() + "'" +
+            "}";
+    }
+
+    
 
 }

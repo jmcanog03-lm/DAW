@@ -2,29 +2,26 @@ import java.time.LocalDate;
 
 public class Pesas implements utilizable {
     private int identificador;
-    private String nombreMaquinas;
-    private LocalDate fechaFabricacion;
-    private int contador;
+    private String nombrePesa;
+    private String fechaFabricacion;
+    private static int contador;
 
     public Pesas() {
 
         this.identificador = contador;
 
-        this.nombreMaquinas = "";
-
-        this.contador = 0;
+        this.nombrePesa = "";
 
         contador++;
 
-        this.fechaFabricacion = LocalDate.of(2025, 5, 4);
+        this.fechaFabricacion = "05092021";
 
     }
 
-    public Pesas(int identificador, String nombreMaquinas, LocalDate fechaFabricacion) {
-        this.identificador = identificador;
-        this.nombreMaquinas = nombreMaquinas;
+    public Pesas( String nombrePesa, String fechaFabricacion) {
+        this.identificador = contador;
+        this.nombrePesa = nombrePesa;
         this.fechaFabricacion = fechaFabricacion;
-        this.contador = 0;
         contador++;
     }
 
@@ -36,34 +33,37 @@ public class Pesas implements utilizable {
         this.identificador = identificador;
     }
 
-    public String getNombreMaquinas() {
-        return this.nombreMaquinas;
+    public String getNombrePesa() {
+        return this.nombrePesa;
     }
 
-    public void setNombreMaquinas(String nombreMaquinas) {
-        this.nombreMaquinas = nombreMaquinas;
+    public void setNombreMaquinas(String nombrePesa) {
+        this.nombrePesa = nombrePesa;
     }
 
-    public LocalDate getFechaFabricacion() {
+    public String getFechaFabricacion() {
         return this.fechaFabricacion;
     }
 
-    public void setFechaFabricacion(LocalDate fechaFabricacion) {
+    public void setFechaFabricacion(String fechaFabricacion) {
         this.fechaFabricacion = fechaFabricacion;
-    }
-
-    public int getContador() {
-        return this.contador;
-    }
-
-    public void setContador(int contador) {
-        this.contador = contador;
     }
 
     @Override
 
     public void utilizar() {
-
+        System.out.println("USANDO MELON!!!!!!!!!!");
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " identificador='" + getIdentificador() + "'" +
+            ", nombreMaquinas='" + getNombrePesa() + "'" +
+            ", fechaFabricacion='" + getFechaFabricacion() + "'" +
+            "}";
+    }
+
+    
 
 }
