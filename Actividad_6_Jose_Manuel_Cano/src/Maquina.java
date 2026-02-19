@@ -39,7 +39,6 @@ public class Maquina implements ocupable, utilizable {
     }
 
     
-
     public int getIdentificador() {
         return this.identificador;
     }
@@ -60,7 +59,7 @@ public class Maquina implements ocupable, utilizable {
         return this.fechaFabricacion;
     }
 
-    public void setFechaFabricacion(String fechaFabricacion) {y 
+    public void setFechaFabricacion(String fechaFabricacion) { 
         this.fechaFabricacion = fechaFabricacion;
     }
 
@@ -92,7 +91,7 @@ public class Maquina implements ocupable, utilizable {
    @Override
 
     public void utilizar() {
-        System.out.println("USANDO MELON!!!!!!!!!!");
+        System.out.println("USANDO LA MAQUINA MELON!!!!!!!!!!");
     }
 
     @Override

@@ -5,6 +5,7 @@ public class Pesas implements utilizable {
     private String nombrePesa;
     private String fechaFabricacion;
     private static int contador;
+    private int peso;
 
     public Pesas() {
 
@@ -14,16 +15,34 @@ public class Pesas implements utilizable {
 
         contador++;
 
+        this.peso =0;
+
         this.fechaFabricacion = "05092021";
 
     }
 
-    public Pesas( String nombrePesa, String fechaFabricacion) {
+    public Pesas( String nombrePesa, String fechaFabricacion ,  int peso) {
         this.identificador = contador;
         this.nombrePesa = nombrePesa;
         this.fechaFabricacion = fechaFabricacion;
+        this.peso = peso;
         contador++;
     }
+
+
+    public void setNombrePesa(String nombrePesa) {
+        this.nombrePesa = nombrePesa;
+    }
+
+    public int getPeso() {
+        return this.peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+
+    
 
     public int getIdentificador() {
         return this.identificador;
@@ -52,7 +71,7 @@ public class Pesas implements utilizable {
     @Override
 
     public void utilizar() {
-        System.out.println("USANDO MELON!!!!!!!!!!");
+        System.out.println("USANDO LA PESA MELON!!!!!!!!!!");
     }
 
     @Override
