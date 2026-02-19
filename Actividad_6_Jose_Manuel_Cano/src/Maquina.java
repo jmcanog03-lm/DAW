@@ -4,33 +4,31 @@ public class Maquina implements ocupable, utilizable {
     private int identificador;
     private String nombreMaquinas;
     private String fechaFabricacion;
-    private int contador;
+    private static int contador;
 
     private boolean ocupado;
-    
+
     public Maquina() {
 
-    this.identificador = contador;
+        this.identificador = contador;
 
-    this.nombreMaquinas = "";
+        this.nombreMaquinas = "";
 
-    this.contador =0;
+        this.ocupado = false;
 
-    contador++;
+        contador++;
 
-    this.fechaFabricacion = "4/09/2025";
-
+        this.fechaFabricacion = "4/09/2025";
 
     }
 
-    public Maquina(String nombreMaquinas, String fechaFabricacion) {
+    public Maquina(String nombreMaquinas, String fechaFabricacion , boolean ocupado) {
         this.identificador = contador;
         this.nombreMaquinas = nombreMaquinas;
         this.fechaFabricacion = fechaFabricacion;
-        this.contador = 0;
-        contador ++;
+        this.ocupado = ocupado;
+        contador++;
     }
-
 
     public int getIdentificador() {
         return this.identificador;
@@ -52,36 +50,38 @@ public class Maquina implements ocupable, utilizable {
         return this.fechaFabricacion;
     }
 
-    public void setFechaFabricacion(String fechaFabricacion) {
+    public void setFechaFabricacion(String fechaFabricacion) {y 
         this.fechaFabricacion = fechaFabricacion;
     }
 
-    public int getContador() {
-        return this.contador;
-    }
-
-    public void setContador(int contador) {
-        this.contador = contador;
-    }
-
     @Override
-    public boolean ocupar(){
+    public boolean ocupar() {
 
-        ocupado = true;
+        if(!this.ocupado){
+            this.ocupado = true;
+            return ocupado;
+        }
 
-        return ocupado;
+        return false;
+        
     }
 
     @Override
 
-    public boolean desocupar(){
-        ocupado = false;
-       return ocupado;
+    public boolean desocupar() {
+           if(this.ocupado){
+            this.ocupado = false;
+            return true;
+        }
+
+        return false;
+        
     }
+    
 
     @Override
 
-    public void utilizar(){}
-
+    public void utilizar() {
+    }
 
 }
