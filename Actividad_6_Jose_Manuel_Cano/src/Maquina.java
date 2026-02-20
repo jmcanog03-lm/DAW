@@ -1,15 +1,15 @@
 import java.time.LocalDate;
 
-public class Maquina implements ocupable, utilizable {
+public class Maquina  implements ocupable, utilizable {
     private int identificador;
     private String nombreMaquinas;
     private String fechaFabricacion;
     private static int contador;
-
     private boolean ocupado;
 
     public Maquina() {
 
+        
         this.identificador = contador;
 
         this.nombreMaquinas = "";
@@ -28,6 +28,7 @@ public class Maquina implements ocupable, utilizable {
         this.ocupado = ocupado;
         contador++;
     }
+
 
 
     public boolean getOcupado() {
