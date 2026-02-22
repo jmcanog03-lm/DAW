@@ -33,14 +33,20 @@ public class App {
         gestoradecoches.listarCoches();
 
 
-        System.out.println("\nBucle for each");
+        System.out.println("\nBucle for each con iterator");
 
         for (Coches coches : gestoradecoches) {
             System.out.println(coches);
             
         }
 
+        /*fuentes */
+
+        /*
+        *https://aprenderaprogramar.com/attachments/article/589/CU00915C%20Ejercicio%20y%20ejemplo%20resuelto%20implementacion%20interfaz%20iterable%20java.pdf
+        *https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=584:ejercicio-ejemplo-resuelto-interface-cloneable-y-metodo-clone-del-api-java-como-duplicar-objetos-cu00912c&catid=58&Itemid=180
         
+        */
 
 
     }
