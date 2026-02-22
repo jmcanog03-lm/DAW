@@ -1,4 +1,5 @@
-public class Coches implements Comparable<Coches>, Cloneable {
+import java.util.Iterator;
+public class Coches implements Comparable<Coches>, Cloneable{
     private int matricula;
     private String nombre;
 
@@ -40,6 +41,17 @@ public class Coches implements Comparable<Coches>, Cloneable {
         Coches clon  = new Coches(this.matricula, this.nombre);
         return clon;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " matricula='" + getMatricula() + "'" +
+            ", nombre='" + getNombre() + "'" +
+            "}";
+    }
+
+
+
 
 
 
