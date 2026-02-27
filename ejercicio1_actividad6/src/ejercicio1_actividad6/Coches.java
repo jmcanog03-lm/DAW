@@ -1,4 +1,4 @@
-package ejercicio1_actividad6;
+
 import java.util.Iterator;
 public class Coches implements Comparable<Coches>, Cloneable{
     private int matricula;
