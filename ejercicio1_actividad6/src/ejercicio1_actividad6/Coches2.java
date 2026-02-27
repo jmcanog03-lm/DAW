@@ -40,9 +40,16 @@ public class Coches2 implements Comparable<Coches2>{
       
     }
 
-    public void ordenar(){
-        
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " matricula='" + getMatricula() + "'" +
+            ", nombreCoche='" + getNombreCoche() + "'" +
+            "}";
     }
+
 
    
 
