@@ -1,21 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 
 import java.util.HashSet;
 import java.util.TreeSet;
 
-/**
- *
- * @author tarde
- */
 
-public class Ejercicio1_actividad6 {
+public class Ejercicio1_Tema6 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         HashSet<Coches2> hashSet = new HashSet<>();
