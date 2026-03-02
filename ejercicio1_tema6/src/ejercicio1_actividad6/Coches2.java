@@ -1,4 +1,4 @@
-package ejercicio1_actividad6;
+
 
 public class Coches2 implements Comparable<Coches2>{
 
@@ -69,6 +69,31 @@ public class Coches2 implements Comparable<Coches2>{
             ", nombreCoche='" + getNombreCoche() + "'" +
             "}";
     }
+
+
+    @Override
+    public boolean equals(Object obj){
+        //Si es el mismo objeto se devuelve true
+        if(this == obj) return true;
+
+        // Aseguro que se evalua un objeto de la clase Coche2
+        if( obj == null || getClass() != obj.getClass()) return false;
+        
+
+        //Casteo para que evaluar que si son iguales devuelva true
+        Coches2 coches = (Coches2) obj;
+        return this.matricula == coches.matricula;
+    }
+
+    
+
+    // Hace que el equals funcione bien con el hashcode y evitar que se rompa el equals haciendo que los objetos Coche2 con la misma matricula tendran el mismo hash asi los identificara
+    // y no se rompera el equals
+    @Override
+    public int hashCode(){
+        return Integer.hashCode(matricula);
+    }
+
 
 
    

@@ -7,8 +7,10 @@ package ejercicio1_actividad6;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-public class Ejercicio1_actividad6 {
 
+
+public class Ejercicio1_actividad6 {
+    
     public static void main(String[] args) {
 
         HashSet<Coches> hashSet = new HashSet<>();
@@ -21,6 +23,8 @@ public class Ejercicio1_actividad6 {
 
         System.out.println("Añadiendo elemento duplicado");
 
+
+
         System.out.println("---------------------------------------------");
 
         TreeSet<Coches2> treeSet = new TreeSet<>();
@@ -28,16 +32,13 @@ public class Ejercicio1_actividad6 {
         treeSet.add(new Coches2(12566778, "Honda"));
         treeSet.add(new Coches2(11212889, "Suzuka"));
 
-        // La solución es implementar la clase comparable ya que como tiene que ordenar
-        // necesita comparar los numeros
-        extracted2(treeSet);
-
-    }
-
-    private static void extracted2(TreeSet<Coches2> treeSet) {
-        for (Coches2 coche2 : treeSet) {
+        // La solución es implementar la clase comparable ya que como tiene que ordenar necesita comparar los numeros
+        for(Coches2 coche2 : treeSet){
             System.out.println(coche2);
         }
+
+        
+
     }
 
     private static void extracted(HashSet<Coches> hashSet) {
@@ -45,5 +46,8 @@ public class Ejercicio1_actividad6 {
             System.out.println(coche);
         }
     }
+
+
+
 
 }
