@@ -19,6 +19,8 @@ public class App {
             System.out.println("3. ELIMINAR UN JUGADOR DEL EQUIPO");
             System.out.println("4. BUSCAR POR NOMBRE DE EQUIPO");
             System.out.println("5. MOSTRAR TODOS LOS JUGADORES");
+            System.out.println("6. MODIFICAR UN JUGADOR");
+            System.out.println("7. SALIR DEL MENÚ");
 
             System.out.println();
 
@@ -46,7 +48,7 @@ public class App {
                     int dorsal1 = Integer.parseInt(sc.nextLine());
 
                     System.out.println("Introduce la altura del jugador");
-                    String altura = sc.nextLine();
+                    int altura = Integer.parseInt(sc.nextLine());
 
                     System.out.println("Añade el nombre del equipo al que pertenece");
                     String nombreEquipo = sc.nextLine();
@@ -80,7 +82,38 @@ public class App {
                     gestora.mostrarTodosLosJugadores();
                     break;
 
-                
+                case 6:
+                    System.out.println("Introduce el identificador del jugador que quieres actualizar");
+                    int id = Integer.parseInt(sc.nextLine());
+
+                     System.out.println("Introduce el nuevo nombre del jugador nuevo del equipo");
+                    String nombreJugadorNuevo = sc.nextLine();
+
+                    System.out.println("Introduce la nueva edad del jugador");
+                    int edad1 = Integer.parseInt(sc.nextLine());
+
+                    System.out.println("Introduce el nuevo dorsal del jugador");
+
+                    int dorsal2 = Integer.parseInt(sc.nextLine());
+
+                    System.out.println("Introduce la nueva altura del jugador");
+                    int  altura2 = Integer.parseInt(sc.nextLine());
+
+                    System.out.println("Añade el nuevo nombre del equipo al que pertenece");
+                    String nombreEquipo2 = sc.nextLine();
+
+                    System.out.println("Introduce la posicion nueva en la que juega el jugador");
+                    String posicion2 = sc.nextLine();
+
+                    System.out.println("Introduce los puntos nuevos que mete el jugador");
+                    int puntos2 = Integer.parseInt(sc.nextLine());
+
+                    gestora.modificarJugador(id, nombreJugadorNuevo, edad1, dorsal2, altura2, nombreEquipo2, posicion2, puntos2);
+                    break;
+
+
+                case 7:
+                    salida = false;
 
                 default:
                     break;

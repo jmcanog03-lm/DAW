@@ -7,7 +7,7 @@ public class Jugador {
     private int puntosTotal;
     private String nombreEquipo;
     private String posicion ;
-    private int contador;
+    private static int contador;
     private int identificador;
 
 
