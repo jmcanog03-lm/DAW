@@ -80,8 +80,7 @@ public class App {
                     gestora.mostrarTodosLosJugadores();
                     break;
 
-                case 6:
-                    gestora.modificarNombreJugador(jugador);
+                
 
                 default:
                     break;
