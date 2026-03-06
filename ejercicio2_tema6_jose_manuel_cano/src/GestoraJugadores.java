@@ -43,7 +43,6 @@ public class GestoraJugadores {
             }
 
         }
-
     }
 
     public void buscarPorDorsal(int dorsal) {
