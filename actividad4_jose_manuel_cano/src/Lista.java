@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 public class Lista {
@@ -6,9 +8,11 @@ public class Lista {
     private String nombre;
 
     private ArrayList<Integer> listaejercicio1;
+    ArrayList<String> nombres;
 
     public Lista() {
         listaejercicio1 = new ArrayList<>();
+        nombres = new ArrayList<>();
     }
 
     public Lista(int numero, int String) {
@@ -80,15 +84,16 @@ public class Lista {
 
         System.out.println("Lista final");
 
-        for (int i = listaejercicio1.size() - 1; i >= 0; i--) {
+        for (int i = listaejercicio1.size() - 1; i > 0; i--) {
 
-            int numero_actual = listaejercicio1.get(i);
-            int numero_anterior = listaejercicio1.get(listaejercicio1.size() -2);
+            int numero_actual = listaejercicio1.get(listaejercicio1.size() - 1);
+            int numero_anterior = listaejercicio1.get(listaejercicio1.size() - 2);
 
             suma = numero_actual + numero_anterior;
 
-           listaejercicio1.add(listaejercicio1.size()-2 + listaejercicio1.size()-1);
-            listaejercicio1.remove(i);
+            listaejercicio1.set(listaejercicio1.size() - 2, suma);
+
+            listaejercicio1.remove(listaejercicio1.size() - 1);
 
             for (Integer integer : listaejercicio1) {
                 System.out.println(integer);
@@ -98,11 +103,117 @@ public class Lista {
 
     }
 
+    public void ejercicio3() {
+        Random ran = new Random();
+        this.numero = 100;
+
+        for (int i = listaejercicio1.size(); i < this.numero; i++) {
+            int numeros_aleatorios = ran.nextInt(100) + 1;
+            // listaejercicio1.contains(numeros_aleatorios);
+            if (listaejercicio1.contains(numeros_aleatorios)) {
+
+                listaejercicio1.remove(Integer.valueOf(numeros_aleatorios));
+            } else {
+                listaejercicio1.add(numeros_aleatorios);
+            }
+        }
+
+        for (Integer integer : listaejercicio1) {
+            System.out.println(integer);
+        }
+
+    }
+
+    public void ejercicio4() {
+        Random ran = new Random();
+        int personas = ran.nextInt(5);
+        ArrayList<String> grupos = new ArrayList<>();
+
+        nombres.add("Juan");
+
+        nombres.add("María");
+
+        nombres.add("Carlos");
+
+        nombres.add("Ana");
+
+        nombres.add("Pedro");
+
+        nombres.add("Laura");
+
+        nombres.add("Luis");
+
+        nombres.add("Sofía");
+
+        nombres.add("Javier");
+
+        nombres.add("Elena");
+
+        nombres.add("Diego");
+
+        nombres.add("Paula");
+
+        nombres.add("Alejandro");
+
+        nombres.add("Lucía");
+
+        nombres.add("Miguel");
+
+        nombres.add("Carmen");
+
+        nombres.add("Pablo");
+
+        nombres.add("Rosa");
+
+        nombres.add("Roberto");
+
+        nombres.add("Isabel");
+
+        nombres.add("Daniel");
+
+        nombres.add("Teresa");
+
+        nombres.add("Jorge");
+
+        nombres.add("Beatriz");
+
+        nombres.add("Fernando");
+
+        nombres.add("Raquel");
+
+        nombres.add("José");
+
+        nombres.add("Patricia");
+
+        nombres.add("David");
+
+        nombres.add("Eva");
+
+        Collections.shuffle(nombres);
+
+        for (int i = 0; i < nombres.size(); i++) {
+            if (grupos.size() < 5) {
+
+                grupos.add(nombres.get(i));
+
+            }
+
+            if (grupos.size() == 5) {
+                System.out.println();
+                 for (String string : grupos) {
+                    System.out.println(string);
+                 }
+                 grupos = new ArrayList<>();
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
         Lista lista = new Lista();
 
         // lista.ejercicio1();
-        lista.ejercicio2();
+        lista.ejercicio4();
 
     }
 
