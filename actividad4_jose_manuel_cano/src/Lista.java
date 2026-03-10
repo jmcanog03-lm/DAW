@@ -2,10 +2,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Scanner;
+
+import javax.print.DocFlavor.STRING;
 
 public class Lista {
     private int numero;
     private String nombre;
+    private static Scanner sc = new Scanner(System.in);
 
     private ArrayList<Integer> listaejercicio1;
     ArrayList<String> nombres;
@@ -200,11 +204,47 @@ public class Lista {
 
             if (grupos.size() == 5) {
                 System.out.println();
-                 for (String string : grupos) {
+                for (String string : grupos) {
                     System.out.println(string);
-                 }
-                 grupos = new ArrayList<>();
+                }
+                grupos = new ArrayList<>();
             }
+        }
+
+    }
+
+    public void ejercicio5() {
+
+        String salida = "final";
+
+        ArrayList<String> colecctionpalabras = new ArrayList<>();
+
+        System.out.println(
+                "Introduce una palabra que no se final para continuar si  no quieres seguir pon final");
+        String palabra = sc.nextLine();
+
+        if(palabra.equals(salida)){
+            System.out.println("no se ejecuta nada");
+        }else{
+            colecctionpalabras.add(palabra);
+        }
+        
+
+        while (!palabra.equals(salida)) {
+
+            System.out.println("Introduce una palabra");
+            palabra = sc.nextLine();
+
+            if (colecctionpalabras.contains(palabra)) {
+                System.out.println("se detecto palabra repetida introdudce otra");
+            } else if (!palabra.equals(salida)) {
+                colecctionpalabras.add(palabra);
+            }
+
+        }
+
+        for (String string : colecctionpalabras) {
+            System.out.println(string);
         }
 
     }
@@ -213,7 +253,7 @@ public class Lista {
         Lista lista = new Lista();
 
         // lista.ejercicio1();
-        lista.ejercicio4();
+        lista.ejercicio5();
 
     }
 
