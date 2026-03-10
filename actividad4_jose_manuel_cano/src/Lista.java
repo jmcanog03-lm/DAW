@@ -249,12 +249,12 @@ public class Lista {
 
     }
 
-    public static void main(String[] args) {
-        Lista lista = new Lista();
+    //public static void main(String[] args) {
+        //Lista lista = new Lista();
 
         // lista.ejercicio1();
-        lista.ejercicio5();
+        //lista.ejercicio5();
 
-    }
+    //}
 
 }
