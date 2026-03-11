@@ -68,9 +68,7 @@ public class Lista {
 
         }
 
-        for (Integer integer : listaejercicio1) {
-            System.out.println(integer);
-        }
+       mostrarListaInteger(listaejercicio1);
 
     }
 
@@ -99,9 +97,7 @@ public class Lista {
 
             listaejercicio1.remove(listaejercicio1.size() - 1);
 
-            for (Integer integer : listaejercicio1) {
-                System.out.println(integer);
-            }
+            mostrarListaInteger(listaejercicio1);
             System.out.println();
         }
 
@@ -122,9 +118,7 @@ public class Lista {
             }
         }
 
-        for (Integer integer : listaejercicio1) {
-            System.out.println(integer);
-        }
+        mostrarListaInteger(listaejercicio1);
 
     }
 
@@ -204,13 +198,24 @@ public class Lista {
 
             if (grupos.size() == 5) {
                 System.out.println();
-                for (String string : grupos) {
-                    System.out.println(string);
-                }
+                mostrarListaString(grupos);
+
                 grupos = new ArrayList<>();
             }
         }
 
+    }
+
+    private void mostrarListaString(ArrayList<String> grupos) {
+        for (String string : grupos) {
+            System.out.println(string);
+        }
+    }
+
+    private void mostrarListaInteger(ArrayList<Integer> grupos) {
+        for (Integer integer : grupos) {
+            System.out.println(integer);
+        }
     }
 
     public void ejercicio5() {
@@ -223,12 +228,11 @@ public class Lista {
                 "Introduce una palabra que no se final para continuar si  no quieres seguir pon final");
         String palabra = sc.nextLine();
 
-        if(palabra.equals(salida)){
+        if (palabra.equals(salida)) {
             System.out.println("no se ejecuta nada");
-        }else{
+        } else {
             colecctionpalabras.add(palabra);
         }
-        
 
         while (!palabra.equals(salida)) {
 
@@ -243,18 +247,18 @@ public class Lista {
 
         }
 
-        for (String string : colecctionpalabras) {
-            System.out.println(string);
-        }
+        System.out.println();
+        System.out.println("Lista de palabras introducidas");
+        mostrarListaString(colecctionpalabras);
 
     }
 
-    //public static void main(String[] args) {
-        //Lista lista = new Lista();
+    // public static void main(String[] args) {
+    // Lista lista = new Lista();
 
-        // lista.ejercicio1();
-        //lista.ejercicio5();
+    // lista.ejercicio1();
+    // lista.ejercicio5();
 
-    //}
+    // }
 
 }
