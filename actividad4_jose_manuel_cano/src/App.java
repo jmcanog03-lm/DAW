@@ -10,8 +10,8 @@ public class App {
         while (salida) {
 
             System.out.println();
-            System.out.println("MENU");
-            System.out.println("-------------");
+            System.out.println("MENU DE LA APLICACION");
+            System.out.println("---------------------");
             System.out.println("1. Ejercicio 1");
             System.out.println("2. Ejercicio 2");
             System.out.println("3. Ejercicio 3");

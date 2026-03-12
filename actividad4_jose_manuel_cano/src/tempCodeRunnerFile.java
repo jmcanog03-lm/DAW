@@ -1,2 +1,0 @@
-
-                    lista.ejercicio3();
