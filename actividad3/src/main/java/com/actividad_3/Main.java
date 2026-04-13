@@ -44,6 +44,7 @@ public class Main {
                         char ch = linea.charAt(j);
                         //String.valueOf(ch);
                         String palabraCensurada = String.valueOf(ch);
+                        //https://github.com/Serra-albarregas/Java2526/blob/main/src/UT7/Ejemplos/EjLeerFichero.java
 
                         if(j == 0){
                             lineanueva+=ch;
