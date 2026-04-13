@@ -11,66 +11,77 @@ import java.util.Scanner;
 public class Main {
     static String path = "src/main/java/com/actividad_3/chat-toxico-lol.txt";
     static String path2 = "src/main/java/com/actividad_3/baneos.txt";
-    static HashSet<String> palabrasBaneadas ;
+    static HashSet<String> palabrasBaneadas = new HashSet<>();
     static Scanner sc = new Scanner(System.in);
-    
-    
+
     public static void main(String[] args) {
         System.out.println("Hello world!");
         palabrasBaneadas.add("pelotudo");
         palabrasBaneadas.add("boludo");
         palabrasBaneadas.add("muerte");
         palabrasBaneadas.add("forros");
+        banearPalabras();
+        leerArchivo();
 
     }
 
-    public static void banearPalabras(){
+    public static void banearPalabras() {
         try (
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(path2))
-        ){
-            
+                BufferedReader br = new BufferedReader(new FileReader(path));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(path2))) {
+
             String linea;
 
             while ((linea = br.readLine()) != null) {
-                String palabras [] = linea.split(" ");
+                linea = linea.replace(",", " , ").replace(".", " . ").replace("!", "").replace("?", "")
+                .replace(";", "").replace(":", "");
+
+                //Quitar espacios generados por el replace y con el split donde haya un espacio divide
+                String palabras[] = linea.trim().split(" ");
                 String lineanueva = "";
-                
-                for (int i = 0; i < palabrasBaneadas.size(); i++) {
-                    if(palabrasBaneadas.contains(palabras)){
-                        //String palabraCensurada = ch
-                     for (int j = 0; j < palabras.length; j++) {
 
-                        char ch = linea.charAt(j);
-                        //String.valueOf(ch);
-                        String palabraCensurada = String.valueOf(ch);
-                        //https://github.com/Serra-albarregas/Java2526/blob/main/src/UT7/Ejemplos/EjLeerFichero.java
+                for (int i = 0; i < palabras.length; i++) {
 
-                        if(j == 0){
-                            lineanueva+=ch;
-                            
+                    if (palabrasBaneadas.contains(palabras[i])) {
+                        // String palabraCensurada = ch
+                        String asteriscos = "";
+                        // String.valueOf(ch);
+
+                        // https://github.com/Serra-albarregas/Java2526/blob/main/src/UT7/Ejemplos/EjLeerFichero.java
+                        char primeraletra = palabras[i].charAt(0);
+                        char ultimaletra = palabras[i].charAt(palabras[i].length() - 1);
+
+                        for (int j = 0; j < palabras[i].length() - 2; j++) {
+                            asteriscos += "*";
                         }
 
+                        lineanueva += primeraletra + asteriscos + ultimaletra;
 
-                        
-                     }
-
-
-                        
+                    } else {
+                        lineanueva += palabras[i] + " ";
                     }
+
                 }
 
+                bw.write(lineanueva);
+                bw.newLine();
             }
 
-
-            
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
     }
 
+    public static void leerArchivo() {
+        try (BufferedReader br = new BufferedReader(new FileReader(path2))) {
+            String linea;
 
-
-
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
