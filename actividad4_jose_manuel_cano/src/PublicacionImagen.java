@@ -8,8 +8,7 @@ public class PublicacionImagen extends Publicacion{
         super.desktop = Desktop.getDesktop();
 
         //super.etiquetas
-
-
+        
     }
 }
 

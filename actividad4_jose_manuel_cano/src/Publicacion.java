@@ -1,19 +1,25 @@
 import java.awt.Desktop;
 
 import java.io.File;
+import java.util.HashSet;
 
 public abstract class Publicacion {
      protected String texto;
-     //hash
-     //protected Img imagen;
-     //protected Usuario usuario;
+     protected String fechaPublicacion;
+     protected HashSet<Etiquetas> etiquetasPublicacion;
+     protected Usuario usuario;
      Desktop desktop = Desktop.getDesktop();
+     protected int identificar;
+     protected int contador;
 
     //Enum protected
 
-    public Publicacion(String texto, Desktop desktop) {
+    public Publicacion(String texto, String fechaPublicacion,Usuario usuario) {
         this.texto = texto;
         this.desktop = desktop;
+        this.usuario = usuario;
+        this.identificar = contador;
+        contador++;
     }
 
 
@@ -37,6 +43,29 @@ public abstract class Publicacion {
     public void setDesktop(Desktop desktop) {
         this.desktop = desktop;
     }
+
+    public void eliminarEtiqueta(Etiquetas etiqueta) {
+
+        for (Etiquetas etiquetasEach : etiquetasPublicacion) {
+            if (etiquetasEach == etiqueta) {
+                etiquetasPublicacion.remove(etiquetasEach);
+            }
+        }
+
+    
+
+    @Override
+    public String toString() {
+        return "{" +
+            " texto='" + getTexto() + "'" +
+            ", fechaPublicacion='" + getFechaPublicacion() + "'" +
+            ", desktop='" + getDesktop() + "'" +
+            ", identificar='" + getIdentificar() + "'" +
+            ", contador='" + getContador() + "'" +
+            "}";
+    }
+
+
 
 
 
